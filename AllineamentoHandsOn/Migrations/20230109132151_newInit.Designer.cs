@@ -4,6 +4,7 @@ using AllineamentoHandsOn._03_PresentationLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AllineamentoHandsOn.Migrations
 {
     [DbContext(typeof(CompaniesAdCtx))]
-    partial class CompaniesAdCtxModelSnapshot : ModelSnapshot
+    [Migration("20230109132151_newInit")]
+    partial class newInit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
