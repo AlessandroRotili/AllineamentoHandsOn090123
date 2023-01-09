@@ -9,8 +9,8 @@ namespace AllineamentoHandsOn._01_BusinessLayer.models.company_models
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public Image ?Logo { get; set; }
+        //public Image? Image { get; set; } = null;
 
-        public List<Ad> JobAds { get; set; } = new List<Ad>();
+        public List<Ad> ?JobAds { get; set; } = new List<Ad>();
     }
 }

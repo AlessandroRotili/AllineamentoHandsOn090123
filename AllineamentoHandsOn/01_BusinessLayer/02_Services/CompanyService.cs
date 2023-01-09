@@ -1,19 +1,23 @@
 ﻿using AllineamentoHandsOn._01_BusinessLayer.models.company_models;
 using AllineamentoHandsOn._02_DataAccessLayer.Interfaces;
 using AllineamentoHandsOn._03_PresentationLayer.Controllers;
+using AutoMapper;
 
 namespace AllineamentoHandsOn._01_BusinessLayer._02_Services
 {
     public class CompanyService : ICompanyService
     {
         private readonly ICompanyDAS _das;
-        public CompanyService(ICompanyDAS das)
+        private readonly IMapper _m;
+        public CompanyService(ICompanyDAS das, IMapper m)
         { 
             _das = das;
+            _m = m;
         }
-        public Company Create(Company c)
+        public Company Create(PostCompany c)
         {
-            return _das.Add(c);
+            var toAdd = _m.Map<Company>(c);
+            return _das.Add(toAdd);
         }
 
         public void Delete(int id)
@@ -26,9 +30,11 @@ namespace AllineamentoHandsOn._01_BusinessLayer._02_Services
             return _das.Get();
         }
 
-        public Company Update(Company company, int id)
+        public Company Update(PostCompany company, int id)
         {
-            return _das.Update(company, id);
+            var toUpdate = _m.Map<Company>(company);
+
+            return _das.Update(toUpdate, id);
         }
     }
 }

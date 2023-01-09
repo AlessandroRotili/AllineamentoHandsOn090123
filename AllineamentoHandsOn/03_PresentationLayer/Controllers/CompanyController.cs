@@ -24,13 +24,13 @@ namespace AllineamentoHandsOn.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody] Company c) {
+        public IActionResult Add([FromBody] PostCompany c) {
 
             return Ok(_companyService.Create(c));
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] Company c)
+        public IActionResult Update(int id, [FromBody] PostCompany c)
         {
             _companyService.Update(c, id);
             return NoContent();

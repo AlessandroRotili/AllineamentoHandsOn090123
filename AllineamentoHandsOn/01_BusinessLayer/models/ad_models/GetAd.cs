@@ -2,7 +2,7 @@
 
 namespace AllineamentoHandsOn._01_BusinessLayer.models.ad_models
 {
-    public class Ad
+    public class GetAdModel
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -11,8 +11,8 @@ namespace AllineamentoHandsOn._01_BusinessLayer.models.ad_models
         public double RAL { get; set; }
 
         public senority RequiredSenority { get; set; }
-        public int CompanyId { get; set; }
 
-        public Company ?Company { get; set; } 
+        public int CompanyId { get; set; }
+        public CompanyLight? Company { get; set; } 
     }
 }

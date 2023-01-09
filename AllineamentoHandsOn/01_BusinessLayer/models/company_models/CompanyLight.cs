@@ -8,7 +8,7 @@ namespace AllineamentoHandsOn._01_BusinessLayer.models.company_models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Image? Logo { get; set; }
+        //public Image? Image { get; set; }
 
     }
 }

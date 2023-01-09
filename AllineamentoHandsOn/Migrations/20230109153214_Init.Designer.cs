@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AllineamentoHandsOn.Migrations
 {
     [DbContext(typeof(CompaniesAdCtx))]
-    [Migration("20230109130746_Init")]
+    [Migration("20230109153214_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -77,6 +77,33 @@ namespace AllineamentoHandsOn.Migrations
                     b.ToTable("Companies");
                 });
 
+            modelBuilder.Entity("AllineamentoHandsOn._01_BusinessLayer.models.images.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId")
+                        .IsUnique();
+
+                    b.ToTable("Image");
+                });
+
             modelBuilder.Entity("AllineamentoHandsOn._01_BusinessLayer.models.ad_models.Ad", b =>
                 {
                     b.HasOne("AllineamentoHandsOn._01_BusinessLayer.models.company_models.Company", "Company")
@@ -88,8 +115,21 @@ namespace AllineamentoHandsOn.Migrations
                     b.Navigation("Company");
                 });
 
+            modelBuilder.Entity("AllineamentoHandsOn._01_BusinessLayer.models.images.Image", b =>
+                {
+                    b.HasOne("AllineamentoHandsOn._01_BusinessLayer.models.company_models.Company", "Company")
+                        .WithOne("Image")
+                        .HasForeignKey("AllineamentoHandsOn._01_BusinessLayer.models.images.Image", "CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Company");
+                });
+
             modelBuilder.Entity("AllineamentoHandsOn._01_BusinessLayer.models.company_models.Company", b =>
                 {
+                    b.Navigation("Image");
+
                     b.Navigation("JobAds");
                 });
 #pragma warning restore 612, 618

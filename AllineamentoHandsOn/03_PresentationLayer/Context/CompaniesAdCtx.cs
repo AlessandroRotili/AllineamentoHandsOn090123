@@ -10,7 +10,7 @@ namespace AllineamentoHandsOn._03_PresentationLayer.Context
         public DbSet<Company> Companies { get; set; }
         public DbSet<Ad> Ads { get; set; }
 
-        public DbSet<Image> Images { get; set; }
+        //public DbSet<Image> Images { get; set; }
 
         public CompaniesAdCtx(DbContextOptions<CompaniesAdCtx> options)
         : base(options)

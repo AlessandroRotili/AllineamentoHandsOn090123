@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<CompaniesAdCtx>(option => option.UseSqlServer(@"server=(localdb)\mssqllocaldb;Database=AllineamenoHandsOn"));
+builder.Services.AddDbContext<CompaniesAdCtx>(option => option.UseSqlServer(@"server=(localdb)\mssqllocaldb;Database=JobSearcher"));
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<ICompanyDAS, CompanyDAS>();

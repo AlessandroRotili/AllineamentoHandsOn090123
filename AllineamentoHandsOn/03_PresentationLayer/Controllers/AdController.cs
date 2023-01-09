@@ -21,12 +21,12 @@ namespace AllineamentoHandsOn._03_PresentationLayer.Controllers
             return Ok(_adService.GetAll());
         }
 
-        [HttpPost] public IActionResult Add([FromBody] Ad a) { 
+        [HttpPost] public IActionResult Add([FromBody] PostAd a) { 
             return Ok(_adService.Create(a));    
         }
 
         [HttpPut("{id}")]
-        public  IActionResult Update(int id, [FromBody] Ad a)
+        public  IActionResult Update(int id, [FromBody] PostAd a)
         {
             return Ok(_adService.Update(a, id));
         }

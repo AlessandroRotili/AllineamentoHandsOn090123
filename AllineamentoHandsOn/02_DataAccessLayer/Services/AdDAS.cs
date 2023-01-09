@@ -2,6 +2,7 @@
 using AllineamentoHandsOn._01_BusinessLayer.models.company_models;
 using AllineamentoHandsOn._02_DataAccessLayer.Interfaces;
 using AllineamentoHandsOn._03_PresentationLayer.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace AllineamentoHandsOn._02_DataAccessLayer.Services
 {
@@ -29,7 +30,7 @@ namespace AllineamentoHandsOn._02_DataAccessLayer.Services
 
         public IEnumerable<Ad> Get()
         {
-            return _ctx.Ads;  
+            return _ctx.Ads.Include(a => a.Company);  
         }
 
         public Ad Update(Ad Ad, int id)

@@ -5,7 +5,7 @@
 namespace AllineamentoHandsOn.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class Newinit : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,10 +47,37 @@ namespace AllineamentoHandsOn.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Images",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CompanyId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Images", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Images_Companies_CompanyId",
+                        column: x => x.CompanyId,
+                        principalTable: "Companies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Ads_CompanyId",
                 table: "Ads",
                 column: "CompanyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Images_CompanyId",
+                table: "Images",
+                column: "CompanyId",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -58,6 +85,9 @@ namespace AllineamentoHandsOn.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Ads");
+
+            migrationBuilder.DropTable(
+                name: "Images");
 
             migrationBuilder.DropTable(
                 name: "Companies");

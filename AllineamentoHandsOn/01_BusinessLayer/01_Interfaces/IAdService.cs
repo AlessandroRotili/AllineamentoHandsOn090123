@@ -5,9 +5,9 @@ namespace AllineamentoHandsOn._01_BusinessLayer._01_Interfaces
 {
     public interface IAdService
     {
-        public IEnumerable<Ad> GetAll();
-        public Company Create(Ad a);
-        public Company Update(Ad a, int id);
+        public IEnumerable<GetAdModel> GetAll();
+        public Ad Create(PostAd a);
+        public Ad Update(PostAd a, int id);
         public void Delete(int id);
     }
 }
