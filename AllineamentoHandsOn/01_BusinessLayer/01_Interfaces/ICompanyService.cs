@@ -4,7 +4,7 @@ namespace AllineamentoHandsOn._03_PresentationLayer.Controllers
 {
     public interface ICompanyService
     {
-        public IEnumerable<Company> GetAll();
+        public IEnumerable<GetCompany> GetAll();
         public Company Create(PostCompany c);
         public Company Update(PostCompany company, int id);
         public void Delete(int id);

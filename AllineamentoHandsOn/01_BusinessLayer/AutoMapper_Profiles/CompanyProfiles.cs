@@ -11,6 +11,9 @@ namespace AllineamentoHandsOn._01_BusinessLayer.AutoMapper_Profiles
             CreateMap<Company, PostCompany>().ReverseMap();
             CreateMap<PostCompany, Company >();
             CreateMap<Company, CompanyLight>();
+            CreateMap<Company, GetCompany>();
+            CreateMap<Company, GetCompany>().ReverseMap();
+
 
         }
     }

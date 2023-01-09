@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { FeaturesModule } from 'src/app/features/features.module';
-import { AdService } from '../services/ad-service';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     HomeRoutingModule,
     FeaturesModule,
-    HttpClientModule  ]
+    HttpClientModule,
+    RouterModule]
 })
 export class HomeModule { }

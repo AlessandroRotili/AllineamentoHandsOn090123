@@ -10,7 +10,7 @@ import { AdService } from '../services/ad-service';
 export class HomeComponent implements OnInit {
 
   constructor(private adService: AdService) { }
-  dataSource: any
+  dataSource: Ad[] = []
   adToShow: Ad = {
     id: -1,
     title: '',
@@ -24,11 +24,12 @@ export class HomeComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     await this.adService.getAll()
       .then(ads => {
+        console.log(ads)
         this.dataSource = ads
         this.adToShow = ads[this.currentIndex]
         console.log(this.dataSource)
-      })
-      .catch(err => console.log(err))
+      }).catch(err => console.log(err))
+
   }
 
 

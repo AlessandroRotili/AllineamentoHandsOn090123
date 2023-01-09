@@ -25,9 +25,10 @@ namespace AllineamentoHandsOn._01_BusinessLayer._02_Services
             _das.Delete(id);
         }
 
-        public IEnumerable<Company> GetAll()
+        public IEnumerable<GetCompany> GetAll()
         {
-            return _das.Get();
+            var myCompanies = _das.Get();
+            return _m.Map<IEnumerable<GetCompany>>(myCompanies);
         }
 
         public Company Update(PostCompany company, int id)
